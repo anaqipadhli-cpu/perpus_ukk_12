@@ -16,20 +16,20 @@
 
     <div class="row">
         <!-- Menu Lihat Buku -->
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
             <a href="<?= base_url('user/buku') ?>" class="text-decoration-none">
                 <div class="card border-0 shadow-sm h-100 hover-shadow" style="transition: all 0.3s; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                     <div class="card-body text-center text-white">
                         <div style="font-size: 3em; margin-bottom: 15px;">📚</div>
                         <h5 class="card-title text-white">Lihat Buku</h5>
-                        <p class="card-text" style="color: rgba(255, 255, 255, 0.9);">Jelajahi daftar buku dan pinjam</p>
+                        <p class="card-text" style="color: rgb(112, 178, 204);">Jelajahi daftar buku dan pinjam</p>
                     </div>
                 </div>
             </a>
         </div>
 
         <!-- Menu Riwayat -->
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
             <a href="<?= base_url('user/riwayat') ?>" class="text-decoration-none">
                 <div class="card border-0 shadow-sm h-100 hover-shadow" style="transition: all 0.3s; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
                     <div class="card-body text-center text-white">
@@ -41,14 +41,27 @@
             </a>
         </div>
 
+        <!-- Menu Profil -->
+        <div class="col-md-3 mb-3">
+            <a href="<?= base_url('user/profile') ?>" class="text-decoration-none">
+                <div class="card border-0 shadow-sm h-100 hover-shadow" style="transition: all 0.3s; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="card-body text-center text-white">
+                        <div style="font-size: 3em; margin-bottom: 15px;">👤</div>
+                        <h5 class="card-title text-white">Profil Saya</h5>
+                        <p class="card-text" style="opacity: 0.9;">Lihat dan kelola profil Anda</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
         <!-- Menu Logout -->
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
             <a href="<?= base_url('auth/logout') ?>" class="text-decoration-none">
-                <div class="card border-0 shadow-sm h-100 hover-shadow" style="transition: all 0.3s; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                <div class="card border-0 shadow-sm h-100 hover-shadow" style="transition: all 0.3s; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                     <div class="card-body text-center text-white">
                         <div style="font-size: 3em; margin-bottom: 15px;">🚪</div>
-                        <h5 class="card-title text-white">Logout</h5>
-                        <p class="card-text" style="color: rgba(255, 255, 255, 0.9);">Keluar dari aplikasi</p>
+                        <h5 class="card-title text-white">Keluar</h5>
+                        <p class="card-text" style="opacity: 0.9;">Keluar dari aplikasi</p>
                     </div>
                 </div>
             </a>

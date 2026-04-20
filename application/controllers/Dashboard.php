@@ -13,6 +13,7 @@ class Dashboard extends CI_Controller {
             $data['total_anggota'] = $this->db->get('anggota')->num_rows();
             $data['total_peminjaman'] = $this->db->get('peminjaman')->num_rows();
             $data['peminjaman_aktif'] = $this->db->get_where('peminjaman', ['status' => 'dipinjam'])->num_rows();
+            $data['peminjaman_kembali'] = $this->db->get_where('peminjaman', ['status' => 'dikembalikan'])->num_rows();
             $data['denda_belum_bayar'] = $this->db->get_where('denda', ['status' => 'belum_bayar'])->num_rows();
             $data['nama_admin'] = $this->session->userdata('nama');
             

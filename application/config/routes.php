@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | DEFAULT ROUTES
 |--------------------------------------------------------------------------
 */
-$route['default_controller'] = 'auth/login';
+$route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
@@ -26,6 +26,8 @@ $route['reset-password'] = 'auth/reset_password';
 |--------------------------------------------------------------------------
 */
 $route['dashboard'] = 'dashboard/index';
+$route['laporan'] = 'laporan/index';
+$route['laporan/pdf'] = 'laporan/pdf';
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +55,7 @@ $route['anggota/hapus/(:num)'] = 'anggota/hapus/$1';
 */
 $route['peminjaman'] = 'peminjaman/index'; // admin
 $route['peminjaman/pinjam'] = 'peminjaman/pinjam'; // user
+$route['peminjaman/pinjam_single/(:num)'] = 'peminjaman/pinjam_single/$1';
 
 /*
 |--------------------------------------------------------------------------
@@ -81,3 +84,4 @@ $route['user/peminjaman'] = 'user/peminjaman';
 $route['user/pengembalian'] = 'user/pengembalian';
 $route['user/denda'] = 'user/denda';
 $route['user/riwayat'] = 'user/riwayat';
+$route['user/profile'] = 'user/profile';

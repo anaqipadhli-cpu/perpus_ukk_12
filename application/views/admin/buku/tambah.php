@@ -1,12 +1,22 @@
 <?php $this->load->view('templates/header'); ?>
 
-<div class="row">
-    <div class="col-md-6">
-        <h2 class="page-title mb-4"><i class="fas fa-plus-circle"></i> Tambah Buku Baru</h2>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="page-title mb-0"><i class="fas fa-plus-circle"></i> Tambah Buku Baru</h2>
+    <a href="<?= base_url('dashboard') ?>" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> Kembali ke Dashboard
+    </a>
+</div>
 
+<div class="row" style="margin-top: 1rem;">
+    <div class="col-md-6">
         <div class="card">
             <div class="card-body">
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Cover Buku</label>
+                        <input type="file" name="cover" class="form-control" accept="image/*">
+                        <div class="form-text">Format: JPG, PNG, GIF. Max: 2MB.</div>
+                    </div>
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Judul Buku</label>
                         <input type="text" name="judul" class="form-control" placeholder="Masukkan judul buku" required>

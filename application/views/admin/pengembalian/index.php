@@ -1,7 +1,10 @@
 <?php $this->load->view('templates/header'); ?>
 
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="page-title"><i class="fas fa-undo"></i> Data Pengembalian</h2>
+    <h2 class="page-title mb-0"><i class="fas fa-undo"></i> Data Pengembalian</h2>
+    <a href="<?= base_url('dashboard') ?>" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> Kembali ke Dashboard
+    </a>
 </div>
 
 <!-- Alert Messages -->
@@ -30,6 +33,7 @@
                     <th>Peminjaman ID</th>
                     <th>Tanggal Kembali Real</th>
                     <th>Status</th>
+                    <th style="width: 12%">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,6 +53,15 @@
                                     echo '<span class="badge bg-secondary">'.$p->status.'</span>';
                                 }
                             ?>
+                        </td>
+                        <td>
+                            <?php if ($p->status == 'menunggu'): ?>
+                                <a href="<?= base_url('pengembalian/konfirmasi/'.$p->id) ?>" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-check"></i> Konfirmasi
+                                </a>
+                            <?php else: ?>
+                                -
+                            <?php endif; ?>
                         </td>
                     </tr>
                     <?php endforeach; ?>

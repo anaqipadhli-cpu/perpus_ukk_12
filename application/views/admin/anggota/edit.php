@@ -1,7 +1,7 @@
 <?php $this->load->view('templates/header'); ?>
 
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="page-title mb-0"><i class="fas fa-user-plus"></i> Tambah Anggota Baru</h2>
+    <h2 class="page-title mb-0"><i class="fas fa-user-edit"></i> Edit Data Anggota</h2>
     <a href="<?= base_url('anggota') ?>" class="btn btn-secondary">
         <i class="fas fa-arrow-left"></i> Kembali
     </a>
@@ -11,33 +11,33 @@
     <div class="col-md-6">
         <div class="card shadow-sm border-0">
             <div class="card-body p-4">
-                <form action="<?= site_url('anggota/tambah'); ?>" method="post">
+                <form method="post">
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Nama Lengkap</label>
-                        <input type="text" name="nama" class="form-control" placeholder="Masukkan nama lengkap" required>
+                        <input type="text" name="nama" value="<?= $anggota->nama; ?>" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Email</label>
-                        <input type="email" name="email" class="form-control" placeholder="nama@example.com" required>
+                        <input type="email" name="email" value="<?= $anggota->email; ?>" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Alamat</label>
-                        <textarea name="alamat" class="form-control" rows="3" placeholder="Masukkan alamat lengkap" required></textarea>
+                        <textarea name="alamat" class="form-control" rows="3" required><?= $anggota->alamat; ?></textarea>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold">No. HP</label>
-                        <input type="text" name="no_hp" class="form-control" placeholder="Contoh: 08123456789" required>
+                        <input type="text" name="no_hp" value="<?= $anggota->no_hp; ?>" class="form-control" required>
                     </div>
 
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
                         <a href="<?= base_url('anggota') ?>" class="btn btn-light">
                             <i class="fas fa-times"></i> Batal
                         </a>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-save"></i> Simpan Anggota
+                        <button type="submit" class="btn btn-warning">
+                            <i class="fas fa-save"></i> Update Data
                         </button>
                     </div>
                 </form>

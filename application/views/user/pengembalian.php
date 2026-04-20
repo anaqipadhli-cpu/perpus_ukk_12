@@ -1,7 +1,12 @@
 <?php $this->load->view('templates/header'); ?>
 <?php $this->load->view('templates/sidebar'); ?>
 
-<h3>Pengembalian Buku</h3>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="mb-0">Pengembalian Buku</h3>
+    <a href="<?= base_url('dashboard') ?>" class="btn btn-secondary btn-sm">
+        <i class="fas fa-arrow-left"></i> Kembali ke Dashboard
+    </a>
+</div>
 
 <table class="table table-bordered">
 <tr>

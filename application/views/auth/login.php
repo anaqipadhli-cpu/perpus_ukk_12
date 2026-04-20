@@ -3,6 +3,23 @@
 <div class="container form-container mt-5 mb-5">
     <div class="row justify-content-center">
         <div class="col-md-5">
+            <!-- Error & Success Messages -->
+            <?php if(isset($_SESSION['error'])): ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-circle"></i> <?= $_SESSION['error'] ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                <?php unset($_SESSION['error']); ?>
+            <?php endif; ?>
+
+            <?php if(isset($_SESSION['success'])): ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle"></i> <?= $_SESSION['success'] ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                <?php unset($_SESSION['success']); ?>
+            <?php endif; ?>
+
             <div class="card border-0 shadow-lg">
                 <div class="card-body p-5">
                     <!-- Header -->
@@ -15,7 +32,7 @@
                     <form method="post">
                         <div class="mb-3">
                             <label class="form-label fw-semibold">Email</label>
-                            <input type="email" name="email" class="form-control form-control-lg" placeholder="Masukkan email Anda" required>
+                            <input type="email" name="email" class="form-control form-control-lg" placeholder="Masukkan email Anda" required autofocus>
                         </div>
 
                         <div class="mb-3">
@@ -54,6 +71,7 @@
             <!-- Footer Info -->
             <div class="text-center mt-4">
                 <p class="text-muted small">© 2024 Perpustakaan Digital. All rights reserved.</p>
+                <p class="text-muted small"><strong>Demo Admin:</strong> admin@admin.com / admin123</p>
             </div>
         </div>
     </div>
@@ -61,7 +79,7 @@
 
 <style>
     body {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, rgb(223, 31, 31) 0%, #2c7767 100%);
         min-height: 100vh;
         display: flex;
         align-items: center;
@@ -109,3 +127,4 @@
 </style>
 
 <?php $this->load->view('templates/footer'); ?>
+

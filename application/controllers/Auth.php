@@ -10,6 +10,15 @@ class Auth extends CI_Controller {
 
             $user = $this->db->get_where('users', ['email' => $email])->row();
 
+            // DEBUG: Uncomment untuk check
+            // echo "Email: $email<br>";
+            // echo "User found: " . ($user ? 'Yes' : 'No') . "<br>";
+            // if ($user) {
+            //     echo "Password match: " . (password_verify($password, $user->password) ? 'Yes' : 'No') . "<br>";
+            //     echo "Hash: " . $user->password . "<br>";
+            // }
+            // die();
+
             if ($user && password_verify($password, $user->password)) {
                 $data = [
                     'id' => $user->id,
@@ -18,10 +27,15 @@ class Auth extends CI_Controller {
                     'login' => true
                 ];
                 $this->session->set_userdata($data);
-
+                $_SESSION['success'] = 'Login berhasil! Selamat datang ' . $user->nama;
                 redirect('dashboard');
             } else {
-                echo "Login gagal!";
+                $message = 'Email atau password salah!';
+                if (!$user) {
+                    $message = 'Email tidak ditemukan. Silakan daftar terlebih dahulu.';
+                }
+                $_SESSION['error'] = $message;
+                redirect('login');
             }
         }
 

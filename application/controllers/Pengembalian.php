@@ -30,7 +30,20 @@ class Pengembalian extends CI_Controller {
         cek_admin();
 
         $pengembalian = $this->db->get_where('pengembalian',['id'=>$id])->row();
+        if (!$pengembalian) {
+            $pengembalian = $this->db->get_where('pengembalian',['peminjaman_id'=>$id])->row();
+        }
+
+        if (!$pengembalian) {
+            $_SESSION['error'] = 'Data pengembalian tidak ditemukan.';
+            redirect('pengembalian');
+        }
+
         $pinjam = $this->db->get_where('peminjaman',['id'=>$pengembalian->peminjaman_id])->row();
+        if (!$pinjam) {
+            $_SESSION['error'] = 'Data peminjaman tidak ditemukan.';
+            redirect('pengembalian');
+        }
 
         $telat = (strtotime($pengembalian->tanggal_kembali_real) - strtotime($pinjam->tanggal_kembali)) / 86400;
 
@@ -42,15 +55,12 @@ class Pengembalian extends CI_Controller {
             ]);
         }
 
-        $this->db->where('id',$id);
+        $this->db->where('id',$pengembalian->id);
         $this->db->update('pengembalian',['status'=>'dikonfirmasi']);
 
         $this->db->where('id',$pinjam->id);
         $this->db->update('peminjaman',['status'=>'dikembalikan']);
         $_SESSION['success'] = 'Pengembalian berhasil dikonfirmasi!';
-        redirect('pengembalian');
-    }
-
         redirect('pengembalian');
     }
 }
